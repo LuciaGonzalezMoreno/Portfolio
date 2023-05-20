@@ -83,6 +83,7 @@ span{
     width: 350px;
     border: 7px solid aqua;
     filter: grayscale(100%);
+    margin-left: 3em;
     
 }
 
@@ -120,6 +121,7 @@ a{
 
 .about img{
     width: 100%;
+    height: auto;
     grid-column: 1/5; /*de los 10, de donde a donde quiero que ocupe*/
     filter: grayscale(100%);
 }
