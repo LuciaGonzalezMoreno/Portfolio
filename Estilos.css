@@ -11,12 +11,13 @@ body{
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.wrapper{
-    width: 100vw;
+.wrapper {
+    width: 100%;
     height: 100vh;
     background-color: #191c32;
-    color:blueviolet;
-}
+    color: blueviolet;
+    overflow-x: hidden;
+  }
 
 .navbar{
     display: flex;
@@ -44,7 +45,7 @@ body{
 
 /*todas las etiquetas que tiene el menu van a ser de color rojo*/
 .menu a{
-    color: red;
+    color: aqua;
     text-decoration: none; /*le saca el subrayado*/
     padding: 10px 20px; /*ancho y alto*/
 }
@@ -67,6 +68,7 @@ body{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     align-items: center;
+    
 }
 
 h1{
@@ -77,9 +79,15 @@ span{
     color: aqua;
 }
 
-img{
+.main img{
     width: 350px;
     border: 7px solid aqua;
+    filter: grayscale(100%);
+    
+}
+
+.main p{
+    font-size: 1.5em;
 }
 
 .download-cv{
@@ -104,7 +112,8 @@ a{
 .about{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    width: 100vw;
+    width: 100%;
+    height: 100vh;
     align-items: center;
     justify-items: center;
 }
@@ -112,6 +121,7 @@ a{
 .about img{
     width: 100%;
     grid-column: 1/5; /*de los 10, de donde a donde quiero que ocupe*/
+    filter: grayscale(100%);
 }
 
 .about-info{
@@ -124,73 +134,238 @@ a{
     color: #191c32;
 }
 
+.about p{
+    font-size: 1.5em;
+}
+
 .divisor{
     height: 4px;
     width: 60px;
     background-color: aqua; /*porque no es un texto*/
     margin-top: 5px;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
 }
 
 .about-info p{
     margin-bottom: 1em;
 }
 
-.portfolio{
-    width: 100vw;
+.portfolio,
+.contact-section{
+    width: 100%;
     background-color: #191c32;
+    padding-bottom: 4em;
 }
 
 .portfolio-headeings{
-    width: 100vw;
-    padding: 5em;
+    width: 100%;
+    padding: 5em 5em 1em 5em;
     flex-direction: column;
     justify-content: center;
 }
 
-.portfolio-headeings h2{
+.portfolio-headeings h2,
+.contact-heading h2,
+.aptitudes-heading h2{
     font-size: 2.5em;
     color: blueviolet;
 }
 
 .portfolio .container{
-    width: 80vw;
-    height: 80vh;
+    width: 70vw;
+    height: auto;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    grid-gap: 2em;
+    grid-row-gap: 20px;
+    justify-items: center; /* Centra horizontalmente las tarjetas */
+    align-items: center; /* Centra verticalmente las tarjetas */
+    
 }
 
 .card{
-    width: 300px; /*si no le pongo height toma el alto que necesita*/
-    height: 450px;
+    width: 90%;
+    height: auto;
     color: #fff;
-    background-color: #7fe9e7;
-    margin: 1em;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido en la parte superior */
 }
 
-.card__img{
+.card__img_1{
     width: 100%;
-    height: 200px;
-    background-image: url(./img/Dibujo.png);
-    background-size: cover;
+    height: 250px;
+    background-size:cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(./img/GranCerdo_Presentacion.PNG);
+    transition: background-image 0.3s ease;
+}
+
+.card__img_1:hover {
+    background-image: url(./img/GranCerdo_Juego_02.PNG);    
+}
+
+.card__img_2{
+    width: 100%;
+    height: 250px;
+    background-size:cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(./img/Qatarsis.png);
+    transition: background-image 0.3s ease;
+}
+.card__img_2:hover {
+    background-image: url(./img/Qatarsis_02.PNG);    
+}
+
+.card__img_3{
+    width: 100%;
+    height: 250px;
+    background-size:cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(./img/ControlArticulos.jpg);
+    transition: background-image 0.3s ease;
+}
+.card__img_3:hover {
+    background-image: url(./img/ControlArticulos02.jpg);    
+}
+
+.card__img_4{
+    width: 100%;
+    height: 250px;
+    background-size:cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(./img/Portfolio.PNG);
+    transition: background-image 0.3s ease;
+}
+.card__img_4:hover {
+    background-image: url(./img/Portfolio02.PNG);    
 }
 
 .card__title{
     padding: 20px;
+    font-size: .8em;
 }
 
 .card__projects-links{
 display: flex;
 justify-content: space-evenly;
+margin-bottom: 1em;
+object-position:bottom;
 }
 
 .card__projects-links a {
 color: #fff;
-text-decoration: none;
 }
 
 .card__projects-links i {
     font-size: 1.5em;
+}
+
+.aptitudes-section{
+    padding: 5em 5em 1em 5em;
+    color: #fff;
+}
+
+.lenguajes{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 5em;
+
+}
+
+.lenguajes img{
+    width: 10vw;
+}
+
+.contact-section {
+    padding: 5em 5em 1em 5em;
+    color: #fff;
+}
+
+.container-contact {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contact-section img {
+    width: 400px;
+    bottom: 0px;
+    margin: 3em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin-top: 2em;
+}
+
+.form-group textarea {
+    height: 150px;
+    padding: 1.5em;
+    background: none;   
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.form-group .input {
+    padding: 10px 20px;
+    margin-bottom: 1em;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.form-group .btn-submit {
+    padding: 10px 20px;
+    margin: 1em;
+    border-radius: 20px;
+    border: none;
+    text-transform: uppercase;
+    background-color: aqua;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    padding: 2em;
+    background-color: aqua;
+}
+  
+.footer-content h2 {
+    font-size: 3em;
+}
+  
+.footer-content h5 {
+    font-size: 1.5em;
+    text-align: center;
+}
+  
+.sotial-networks {
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    margin-top: 1em;
+}
+  
+.sotial-networks i {
+    font-size: 1.5em;
+}
+
+.sotial-networks a {
+    color:#191c32;
     }
